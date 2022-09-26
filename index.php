@@ -14,7 +14,7 @@
 <body>
     <header>
         <h1>Epic Rides Collection</h1>
-        <i class="fa-regular fa-square-plus"></i>
+        <i class="fa-regular fa-square-plus fa-2xl"></i>
     </header>
     <main>
         <h2>Welcome to my Collection</h2>
