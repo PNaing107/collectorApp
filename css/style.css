@@ -7,6 +7,11 @@ img {
     height: auto;
 }
 
+/*remove after testing */
+.card, .card * {
+    border: 1px red solid;
+}
+
 header {
     display: flex;
     justify-content: space-around;
@@ -21,4 +26,23 @@ header {
 main {
     text-align: center;
     margin-top: 6rem;
+    padding: 1rem 2rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card-footer p {
+    margin-left: 1rem;
+}
+
+.card img {
+    max-width: 50em;
 }

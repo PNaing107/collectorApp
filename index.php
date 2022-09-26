@@ -1,4 +1,5 @@
 <?php
+    require_once 'functions.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +24,10 @@
             the right place.
         </p>
         <div class="card-container">
-            --- Insert function to display collection. ---
+            <?php
+            $db = connectToDB('epic-rides');
+            echo displayCollection($db);
+            ?>
         </div>
     </main>
 </body>
