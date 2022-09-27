@@ -84,7 +84,9 @@ function displayCollection(array $array)
         '<div class="card">'
             .'<div class="card-header">'
                 .'<div class="card-header-icon-holder">'
-                    . $disciplineIcons[$route['discipline']]
+                    .'<a href="html/explainer.html">'
+                        . $disciplineIcons[$route['discipline']]
+                    .'</a>'
                 .'</div>'
                 .'<h2>' . $route['name'] . '</h2>'
                 .'<p><strong>' . $route['region'] . '</strong> - ' . $route['country_name'] . '</p>'
