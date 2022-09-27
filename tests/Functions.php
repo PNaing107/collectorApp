@@ -66,7 +66,16 @@ class Functions extends TestCase
 
         // Assert
         $this->assertEquals($expected, $result);
-        
+
     }
     // Malformed Tests
+    public function test_displayCollection_GivenStringThrowError()
+    {
+        // Arrange
+        $input = 'Test String';
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = displayCollection($input);
+    }
 }
