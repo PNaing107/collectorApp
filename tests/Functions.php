@@ -55,6 +55,18 @@ class Functions extends TestCase
 
 
     // Failure Tests
+    public function test_displayCollection_GivenEmptyArrayReturnsError()
+    {
+        // Arrange
+        $input = [];
+        $expected = 'Error: No items have been found please check Database.';
 
+        // Act
+        $result = displayCollection($input);
+
+        // Assert
+        $this->assertEquals($expected, $result);
+        
+    }
     // Malformed Tests
 }

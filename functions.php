@@ -47,8 +47,13 @@ function getCollection($pdo)
     return $query->fetchAll();
 }
 
-function displayCollection($array)
+function displayCollection(array $array)
 {
+    //Check if array is empty and show error message if true
+    if(!$array) {
+        return 'Error: No items have been found please check Database.';
+    }
+
     //Array of Icon Tags
     $disciplineIcons = [
         'road'=> '<i class="fa-solid fa-road fa-2xl"></i>',
