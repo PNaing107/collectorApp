@@ -50,10 +50,10 @@ function displayCollection($pdo)
 
     //3. Array of Icon Tags
     $disciplineIcons = [
-        'road'=> '<i class="fa-solid fa-road"></i>',
-        'gravel' => '<i class="fa-solid fa-route"></i>',
-        'mtb-crosscountry'=> '<i class="fa-solid fa-mound"></i>',
-        'mtb-downhill'=> '<i class="fa-solid fa-mountain-sun"></i>'
+        'road'=> '<i class="fa-solid fa-road fa-2xl"></i>',
+        'gravel' => '<i class="fa-solid fa-route fa-2xl"></i>',
+        'mtb-crosscountry'=> '<i class="fa-solid fa-mound fa-2xl"></i>',
+        'mtb-downhill'=> '<i class="fa-solid fa-mountain-sun fa-2xl"></i>'
     ];
 
     $collectionHTML = '';
@@ -62,17 +62,19 @@ function displayCollection($pdo)
         $collectionHTML .=
         '<div class="card">'
             .'<div class="card-header">'
-            . $disciplineIcons[$route['discipline']] .
-                '<h2>' . $route['name'] . '</h2>'
+                .'<div class="card-header-icon-holder">'
+                    . $disciplineIcons[$route['discipline']]
+                .'</div>'
+                .'<h2>' . $route['name'] . '</h2>'
                 .'<p><strong>' . $route['region'] . '</strong> - ' . $route['country_name'] . '</p>'
             .'</div>'
             .'<img src="' . $route['url'] . '" alt="' . $route['alt_text'] .'">'
             .'<p>' . $route['short_description'] . '</p>'
             .'<div class="card-footer">'
-                .'<p>Distance: ' . $route['distance'] . 'Km</p>'
-                .'<p>Effort Level: ' . $route['effort_level'] . '</p>'
-                .'<p>Adrenaline Rating: ' . $route['adrenaline_rating'] . '</p>'
-                .'<i class="fa-solid fa-arrow-up-right-from-square"></i>'
+                .'<p><strong>Distance:</strong><br>' . $route['distance'] . ' Km</p>'
+                .'<p><strong>Effort Level:</strong><br>' . $route['effort_level'] . '</p>'
+                .'<p><strong>Adrenaline Rating:</strong><br>' . $route['adrenaline_rating'] . '</p>'
+                .'<span class="material-symbols-outlined md-36">open_in_new</span>'
             .'</div>'
         .'</div>';
     }

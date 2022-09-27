@@ -8,7 +8,7 @@ img {
 }
 
 /*remove after testing */
-.card, .card * {
+.card, .card-footer {
     border: 1px red solid;
 }
 
@@ -26,23 +26,62 @@ header {
 main {
     text-align: center;
     margin-top: 6rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: relative;
 }
 
 .card-header {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    /*justify-content: space-around;*/
 }
+
+.card-header h2 {
+    margin-bottom: 0;
+}
+
+
+.card-header-icon-holder {
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    margin-top: 1rem;
+}
+
 
 .card-footer {
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
-.card-footer p {
-    margin-left: 1rem;
+.card-footer i {
+    height: 3rem;
+    width: 3rem;
+}
+
+.material-symbols-outlined {
+    height: 3rem;
+    width: 3rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.material-symbols-outlined.md-36 {
+    font-size: 2.5rem;
+}
+
+.card-footer strong {
+    padding: 0.5rem;
 }
 
 .card img {
     max-width: 50em;
 }
+
