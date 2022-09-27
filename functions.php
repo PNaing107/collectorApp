@@ -22,10 +22,9 @@ function connectToDB(string $DBname)
     }
 }
 
-function displayCollection($pdo)
+function getCollection($pdo)
 {
     //1. Prepare statement
-
     $query = $pdo->prepare(
         'SELECT 
         `routes`.`name`,
@@ -44,11 +43,13 @@ function displayCollection($pdo)
     );
 
     //2. Execute query
-
     $query->execute();
-    $result = $query->fetchAll();
+    return $query->fetchAll();
+}
 
-    //3. Array of Icon Tags
+function displayCollection($array)
+{
+    //Array of Icon Tags
     $disciplineIcons = [
         'road'=> '<i class="fa-solid fa-road fa-2xl"></i>',
         'gravel' => '<i class="fa-solid fa-route fa-2xl"></i>',
@@ -58,7 +59,7 @@ function displayCollection($pdo)
 
     $collectionHTML = '';
 
-    foreach ($result as $route) {
+    foreach ($array as $route) {
         $collectionHTML .=
         '<div class="card">'
             .'<div class="card-header">'

@@ -27,7 +27,7 @@
         <div class="card-container">
             <?php
             $db = connectToDB('epic-rides');
-            echo displayCollection($db);
+            echo displayCollection(getCollection($db));
             ?>
         </div>
     </main>
