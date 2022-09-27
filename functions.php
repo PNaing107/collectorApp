@@ -1,7 +1,11 @@
 <?php
 
-// Function to connect to the database
-function connectToDB(string $DBname)
+/**
+ * Function to connect to the database
+ * @param string $DBname
+ * @return PDO
+ */
+function connectToDB(string $DBname): PDO
 {
 // 1. Database Connection arguments
     $host = 'db';
@@ -22,7 +26,12 @@ function connectToDB(string $DBname)
     }
 }
 
-function getCollection($pdo)
+/**
+ * Function to get data from database
+ * @param PDO $pdo
+ * @return array
+ */
+function getCollection($pdo): array
 {
     //1. Prepare statement
     $query = $pdo->prepare(
@@ -47,6 +56,12 @@ function getCollection($pdo)
     return $query->fetchAll();
 }
 
+
+/**
+ * Function to return a string representing HTML for each collection item card
+ * @param array $array
+ * @return string
+ */
 function displayCollection(array $array)
 {
     //Check if array is empty and show error message if true
