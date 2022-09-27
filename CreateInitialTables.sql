@@ -11,7 +11,7 @@ CREATE TABLE `locations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (1, 'Italy', 'Lombardy', 'Europe');
-INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (2, 'France', 'Isère', 'Europe');
+INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (2, 'France', 'Isere', 'Europe');
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (3, 'United Kingdom', 'Somerset', 'Europe');
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (4, 'Italy', 'Tuscany', 'Europe');
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (5, 'United Kingdom', 'Stirlingshire', 'Europe');
@@ -20,7 +20,7 @@ INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) V
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (8, 'Canada', 'Yukon', 'North America');
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (9, 'Morroco', 'Marrakech-Safi', 'North Africa');
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (10, 'United Kingdom', 'Gwynedd', 'Europe');
-INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (11, 'Norway', 'Sunnmøre', 'Europe');
+INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (11, 'Norway', 'Sunnmore', 'Europe');
 INSERT INTO `locations` (`location_id`, `country_name`, `region`, `continent`) VALUES (12, 'Austria', 'Tyrol', 'Europe');
 
 DROP TABLE IF EXISTS `routes`;
@@ -46,7 +46,7 @@ VALUES (1,
         'road',
         4,
         1,
-        'Passo dello Stelvio is “arguably the purest, most exhilarating, most spellbinding mountain playground accessible to cyclists.”');
+        'Passo dello Stelvio is "arguably the purest, most exhilarating, most spellbinding mountain playground accessible to cyclists."');
 INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
 VALUES (2,
         "Alpe d'Huez",
@@ -55,7 +55,7 @@ VALUES (2,
         'road',
         3,
         1,
-        "Alpe d’Huez really is the Mecca of cycling, and the ascent to Alpe d’Huez is truely a once in a lifetime experience!"
+        "Alpe d'Huez really is the Mecca of cycling, and the ascent to Alpe d'Huez is truely a once in a lifetime experience!"
         );
 INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
 VALUES (3,
@@ -75,7 +75,7 @@ VALUES (4,
         'gravel',
         3,
         3,
-        '“Strade Bianche” means “white roads” and in Tuscany this expression refers to the network of unpaved back roads that run among the vineyards and olive groves of the Tuscan countryside.'
+        '"Strade Bianche" means "white roads" and in Tuscany this expression refers to the network of unpaved back roads that run among the vineyards and olive groves of the Tuscan countryside.'
         );
 INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
 VALUES (5,
@@ -155,7 +155,7 @@ VALUES (12,
         'mtb-downhill',
         1,
         5,
-        "Renowned as a climbing and waterspouts destination, Austria’s Galitzenklamm Gorge also offers some of the country’s most difficult MTB trails. Radwanderung, in particular is the perfect foil for danger-seekers."
+        "Renowned as a climbing and waterspouts destination, Austria's Galitzenklamm Gorge also offers some of the country's most difficult MTB trails. Radwanderung, in particular is the perfect foil for danger-seekers."
         );
 
 DROP TABLE IF EXISTS `images`;
