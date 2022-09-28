@@ -25,7 +25,7 @@ require_once 'functions.php';
         Got any got recommendations for some Epic Rides? Feel free to add them to the current collection by completing
         the form below.
     </p>
-    <form action="functions.php" method="post">
+    <form action="formValidation.php" method="post">
         <label for="name">Name of Route</label><br>
         <input type="text" maxlength="255" id="name" name="name" required><br>
         <label for="country">Which Country is it in?</label><br>
