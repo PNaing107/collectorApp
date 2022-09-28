@@ -31,19 +31,10 @@ require_once 'functions.php';
         <label for="country">Which Country is it in?</label><br>
         <!-- for now this is a hardcoded list. In the future I should make this dynamic by getting Country list from db -->
         <select name="country" id="country" required>
-            <option value="Austria">Austria</option>
-            <option value="Andorra">Andorra</option>
-            <option value="Belgium">Belgium</option>
-            <option value="Canada">Canada</option>
-            <option value="France">France</option>
-            <option value="Italy">Italy</option>
-            <option value="Morroco">Morroco</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Norway">Norway</option>
-            <option value="Spain">Spain</option>
-            <option value="Switzerland">Switzerland</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="USA">USA</option>
+            <?php
+            $db = connectToDB('epic-rides');
+            echo createOptionElement(getListOfCountries($db));
+            ?>
         </select><br>
         <label for="region">Which Region of the Country is it in?</label><br>
         <select name="region" id="region" required>
