@@ -62,7 +62,7 @@ function getCollection($pdo): array
  * @param array $array
  * @return string
  */
-function displayCollection(array $array)
+function displayCollection(array $array): string
 {
     //Check if array is empty and show error message if true
     if(!$array) {
