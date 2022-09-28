@@ -18,7 +18,10 @@ foreach ($string_inputs as $key => $value) {
 }
 
 if ($validSubmission) {
-    addCollectionItem();
+    $db = connectToDB('epic-rides');
+    print_r(addCollectionItem($db));
+} else {
+    echo 'Please go back to the Home page and try again.';
 }
 //$_POST['name']
 //$_POST['country']
