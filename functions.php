@@ -31,7 +31,7 @@ function connectToDB(string $DBname): PDO
  * @param PDO $pdo
  * @return array
  */
-function getCollection($pdo): array
+function getCollection(PDO $pdo): array
 {
     //1. Prepare statement
     $query = $pdo->prepare(
@@ -104,3 +104,25 @@ function displayCollection(array $array): string
 
     return $collectionHTML;
 }
+
+function getListOfCountries(PDO $pdo): array
+{
+    //1. Prepare statement
+    $query = $pdo->prepare('SELECT DISTINCT `country_name` FROM `locations`;');
+
+    //2. Execute query
+    $query->execute();
+    return $query->fetchAll();
+}
+
+function createOptionElement(array $array): string
+{
+    $optionHTML = '';
+
+    foreach ($array as $option) {
+        $optionHTML .= '<option value="' . $option['country_name'] . '">' . $option['country_name'] . '</option>';
+    }
+
+    return $optionHTML;
+}
+

@@ -93,3 +93,12 @@ main {
     margin-top: 1.8rem;
 }
 
+/* Form Styling */
+
+form * {
+    margin-bottom: 0.5rem;
+}
+
+label {
+    font-weight: bold;
+}
