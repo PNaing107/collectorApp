@@ -267,4 +267,3 @@ VALUES (
     'Galitzenklamm Gorge'
     );
 
-
