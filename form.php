@@ -72,7 +72,7 @@ require_once 'functions.php';
             <option value="4">4</option>
             <option value="5">5</option>
         </select><br>
-        <label for="adrenaline_rating">Adrenaline Score</label><br>
+        <label for="adrenaline_rating">Adrenaline Rating</label><br>
         <select name="adrenaline_rating" id="adrenaline_rating" required>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -80,7 +80,7 @@ require_once 'functions.php';
             <option value="4">4</option>
             <option value="5">5</option>
         </select><br>
-        <label for="short_description">Please provide a short description</label><br>
+        <label for="short_description">Please provide a short description of your route</label><br>
         <input type="text" maxlength="255" id="short_description" name="short_description" required><br>
         <input type="submit" value="Submit">
     </form>
