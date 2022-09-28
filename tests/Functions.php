@@ -28,22 +28,22 @@ class Functions extends TestCase
 
         $expected =
             '<div class="card">'
-            .'<div class="card-header">'
-            .'<div class="card-header-icon-holder">'
+            . '<div class="card-header">'
+            . '<div class="card-header-icon-holder">'
             . '<i class="fa-solid fa-road fa-2xl"></i>'
-            .'</div>'
-            .'<h2>' . 'test' . '</h2>'
-            .'<p><strong>' . 'test' . '</strong> - ' . 'test' . '</p>'
-            .'</div>'
-            .'<img src="' . 'www.test.com' . '" alt="' . 'test' .'">'
-            .'<p>' . 'testing testing testing' . '</p>'
-            .'<div class="card-footer">'
-            .'<p><strong>Distance:</strong><br>' . 123 . ' Km</p>'
-            .'<p><strong>Effort Level:</strong><br>' . 6 . '</p>'
-            .'<p><strong>Adrenaline Rating:</strong><br>' . 6 . '</p>'
-            .'<span class="material-symbols-outlined md-36">open_in_new</span>'
-            .'</div>'
-            .'</div>';
+            . '</div>'
+            . '<h2>' . 'test' . '</h2>'
+            . '<p><strong>' . 'test' . '</strong> - ' . 'test' . '</p>'
+            . '</div>'
+            . '<img src="' . 'www.test.com' . '" alt="' . 'test' .'">'
+            . '<p>' . 'testing testing testing' . '</p>'
+            . '<div class="card-footer">'
+            . '<p><strong>Distance:</strong><br>' . 123 . ' Km</p>'
+            . '<p><strong>Effort Level:</strong><br>' . 6 . '</p>'
+            . '<p><strong>Adrenaline Rating:</strong><br>' . 6 . '</p>'
+            . '<span class="material-symbols-outlined md-36">open_in_new</span>'
+            . '</div>'
+            . '</div>';
 
         // Act
         $result = displayCollection($mockDatabaseResult);
@@ -52,8 +52,7 @@ class Functions extends TestCase
         $this->assertEquals($expected, $result);
 
     }
-
-
+    
     // Failure Tests
     public function test_displayCollection_GivenEmptyArrayReturnsError()
     {
@@ -68,6 +67,7 @@ class Functions extends TestCase
         $this->assertEquals($expected, $result);
 
     }
+
     // Malformed Tests
     public function test_displayCollection_GivenStringThrowError()
     {
