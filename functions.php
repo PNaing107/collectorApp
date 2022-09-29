@@ -43,6 +43,7 @@ function getCollection(PDO $pdo): array
         `routes`.`effort_level`,
         `routes`.`adrenaline_rating`,
         `routes`.`short_description`,
+        `routes`.`external_link`,
         `locations`.`country_name`,
         `locations`.`region`,
         `images`.`url`,
@@ -99,7 +100,9 @@ function displayCollection(array $array): string
                 .'<p><strong>Distance:</strong><br>' . $route['distance'] . ' Km</p>'
                 .'<p><strong>Effort Level:</strong><br>' . $route['effort_level'] . '</p>'
                 .'<p><strong>Adrenaline Rating:</strong><br>' . $route['adrenaline_rating'] . '</p>'
-                .'<span class="material-symbols-outlined md-36">open_in_new</span>'
+                .'<a href="' . $route['external_link'] .'" target="_blank">'
+                    .'<span class="material-symbols-outlined md-36">open_in_new</span>'
+                .'</a>'
             .'</div>'
         .'</div>';
     }
