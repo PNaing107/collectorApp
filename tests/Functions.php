@@ -53,10 +53,25 @@ class Functions extends TestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function test_createOptionElement_GivenArrayReturnsString()
+    public function test_createOptionElement_GivenArrayThenStringReturnsString()
     {
-        //Arrange
-        $mockArray = [];
+        // Arrange
+        $mockArray = [
+            ['option'=>'Option 1'],
+            ['option'=>'Option 2'],
+            ['option'=>'Option 3'],
+        ];
+
+        $expected =
+            '<option value="Option 1">Option 1</option>'
+            .'<option value="Option 2">Option 2</option>'
+            .'<option value="Option 3">Option 3</option>';
+
+        // Act
+        $result = createOptionElement($mockArray,'option');
+
+        // Assert
+        $this->assertEquals($expected, $result);
     }
 
     public function test_validateURL_GivenValidURLReturnsTrue()
@@ -118,5 +133,19 @@ class Functions extends TestCase
 
         // Act
         $result = validateURL($input);
+    }
+
+    public function test_createOptionElement_GivenStringThenArrayThrowError()
+    {
+        // Arrange
+        $mockArray = [
+            ['option'=>'Option 1'],
+            ['option'=>'Option 2'],
+            ['option'=>'Option 3'],
+        ];
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = createOptionElement('option', $mockArray);
     }
 }
