@@ -8,17 +8,20 @@ function checkStringInput(array $stringFields): bool
     foreach ($stringFields as $key => $value) {
         if (!is_string($_POST[$key]) | strlen($_POST[$key]) == 0 | strlen($_POST[$key]) > 255) {
             echo '<p>Invalid ' . $value .'. Make sure you provide a ' . $value .' and it is no longer than 255 characters.</p>';
+            return false;
         }
     }
-    return false;
+    return true;
+
 }
 
 function validateURL(string $url): bool
 {
     if (!filter_var($url, FILTER_VALIDATE_URL)) {
         echo '<p>URL is invalid. Please check and try again</p>';
+        return false;
     }
-    return false;
+    return true;
 }
 
 // 1. Check Name of Route, URL, Alt Text & Short Description are strings, not empty and not larger than 255 characters
