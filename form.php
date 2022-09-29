@@ -38,18 +38,10 @@ require_once 'functions.php';
         </select><br>
         <label for="region">Which Region of the Country is it in?</label><br>
         <select name="region" id="region" required>
-            <option value="Lombardy">Lombardy</option>
-            <option value="Isere">Isere</option>
-            <option value="Somerset">Somerset</option>
-            <option value="Tuscany">Tuscany</option>
-            <option value="Stirlingshire">Stirlingshire</option>
-            <option value="Michigan">Michigan</option>
-            <option value="Canterbury">Canterbury</option>
-            <option value="Yukon">Yukon</option>
-            <option value="Marrakech-Safi">Marrakech-Safi</option>
-            <option value="Gwynedd">Gwynedd</option>
-            <option value="Sunnmore">Sunnmore</option>
-            <option value="Tyrol">Tyrol</option>
+            <?php
+            $db = connectToDB('epic-rides');
+            echo createOptionElement(getListOfRegions($db));
+            ?>
         </select><br>
         <label for="discipline">Select a Discipline</label><br>
         <select name="discipline" id="discipline" required>
