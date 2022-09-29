@@ -17,25 +17,16 @@ foreach ($string_inputs as $key => $value) {
     }
 }
 
+// 2. Check if valid url
+if (!filter_var($_POST['url'], FILTER_VALIDATE_URL)) {
+    echo '<p>URL is invalid. Please check and try again</p>';
+}
+
 if ($validSubmission) {
     $db = connectToDB('epic-rides');
-    print_r(addCollectionItem($db));
+    echo addCollectionItem($db);
 } else {
-    echo 'Please go back to the Home page and try again.';
+    echo '<p>Please go back to the <a href="form.php">form</a> and try again.</p>';
 }
-//$_POST['name']
-//$_POST['country']
-//$_POST['region']
 
-//$_POST['discipline']
-
-//$_POST['url']
-//$_POST['alt_text']
-
-//$_POST['distance']
-
-//$_POST['effort_level']
-//$_POST['adrenaline_rating']
-
-//$_POST['short_description']
 

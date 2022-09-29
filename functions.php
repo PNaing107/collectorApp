@@ -196,5 +196,5 @@ function addCollectionItem(PDO $pdo): string
 
     return
         '<h2>Your Route was Successfully added to the collection!</h2>
-        <a href="index.php"><p>Return Back to Collection</p></a>';
+        <a href="index.php">Return Back to Collection</a>';
 }
