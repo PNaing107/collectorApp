@@ -177,8 +177,8 @@ function addCollectionItem(PDO $pdo): string
 
     // 3. Insert Statement into `routes`
     $query = $pdo->prepare(
-'INSERT INTO `routes` (`name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)'.
-    ' VALUES (:name, :location_id, :distance, :discipline, :effort_level, :adrenaline_rating, :short_description);'
+'INSERT INTO `routes` (`name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)'.
+    ' VALUES (:name, :location_id, :distance, :discipline, :effort_level, :adrenaline_rating, :short_description, :external_link);'
     );
 
     $query->bindParam(':name',$_POST['name']);
@@ -197,6 +197,8 @@ function addCollectionItem(PDO $pdo): string
     $query->bindParam(':adrenaline_rating', $adrenaline_rating);
 
     $query->bindParam(':short_description', $_POST['short_description']);
+
+    $query->bindParam(':external_link', $_POST['external_link']);
 
     $query->execute();
 

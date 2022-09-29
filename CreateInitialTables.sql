@@ -429,7 +429,7 @@ VALUES (
     'mtb-downhill',
     1,
     5,
-    "Renowned as a climbing and waterspouts destination, Austria's Galitzenklamm Gorge also offers some of the country's most difficult MTB trails. Radwanderung, in particular is the perfect foil for danger-seekers.",
+    "Renowned as a climbing and watersports destination, Austria's Galitzenklamm Gorge also offers some of the country's most difficult MTB trails. Radwanderung, in particular is the perfect foil for danger-seekers.",
     'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
 
