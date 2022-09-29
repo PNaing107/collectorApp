@@ -21,7 +21,8 @@ class Functions extends TestCase
                     'short_description' => 'testing testing testing',
                     'distance' => 123,
                     'effort_level' => 6,
-                    'adrenaline_rating' =>6
+                    'adrenaline_rating' =>6,
+                    'external_link' => 'www.awebsite.com'
                 ]
             ];
 
@@ -42,7 +43,9 @@ class Functions extends TestCase
             . '<p><strong>Distance:</strong><br>' . 123 . ' Km</p>'
             . '<p><strong>Effort Level:</strong><br>' . 6 . '</p>'
             . '<p><strong>Adrenaline Rating:</strong><br>' . 6 . '</p>'
+            .'<a href="www.awebsite.com" target="_blank">'
             . '<span class="material-symbols-outlined md-36">open_in_new</span>'
+            .'</a>'
             . '</div>'
             . '</div>';
 
