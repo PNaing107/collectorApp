@@ -117,6 +117,16 @@ function getListOfCountries(PDO $pdo): array
     return $query->fetchAll();
 }
 
+function getListOfRegions(PDO $pdo): array
+{
+    //1. Prepare statement
+    $query = $pdo->prepare('SELECT DISTINCT `region` FROM `locations`;');
+
+    //2. Execute query
+    $query->execute();
+    return $query->fetchAll();
+}
+
 function createOptionElement(array $array): string
 {
     $optionHTML = '';
