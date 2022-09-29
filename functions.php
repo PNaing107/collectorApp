@@ -107,6 +107,11 @@ function displayCollection(array $array): string
     return $collectionHTML;
 }
 
+/**
+ * Query Database for all distinct countries
+ * @param PDO $pdo
+ * @return array
+ */
 function getListOfCountries(PDO $pdo): array
 {
     //1. Prepare statement
@@ -117,6 +122,11 @@ function getListOfCountries(PDO $pdo): array
     return $query->fetchAll();
 }
 
+/**
+ * Query Database for all distinct regions
+ * @param PDO $pdo
+ * @return array
+ */
 function getListOfRegions(PDO $pdo): array
 {
     //1. Prepare statement
@@ -127,6 +137,12 @@ function getListOfRegions(PDO $pdo): array
     return $query->fetchAll();
 }
 
+/**
+ * Function to generate drop down options given an array
+ * @param array $array associative array of drop down options
+ * @param string $key the key of the value required in the drop down option
+ * @return string
+ */
 function createOptionElement(array $array, string $key): string
 {
     $optionHTML = '';
@@ -138,6 +154,11 @@ function createOptionElement(array $array, string $key): string
     return $optionHTML;
 }
 
+/**
+ * Function to insert form data into database
+ * @param PDO $pdo
+ * @return string
+ */
 function addCollectionItem(PDO $pdo): string
 {
     // 1. Get location_id
@@ -199,6 +220,11 @@ function addCollectionItem(PDO $pdo): string
         <a href="index.php">Return Back to Collection</a>';
 }
 
+/**
+ * Checks if strings from form text inputs are valid
+ * @param array $stringFields
+ * @return array|bool[]
+ */
 function checkStringInput(array $stringFields): array
 {
     foreach ($stringFields as $key => $value) {
@@ -210,6 +236,11 @@ function checkStringInput(array $stringFields): array
 
 }
 
+/**
+ * Checks if string for URL from text input is valid
+ * @param string $url
+ * @return bool
+ */
 function validateURL(string $url): bool
 {
     if (!filter_var($url, FILTER_VALIDATE_URL)) {
