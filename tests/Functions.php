@@ -22,7 +22,6 @@ class Functions extends TestCase
                     'distance' => 123,
                     'effort_level' => 6,
                     'adrenaline_rating' =>6
-
                 ]
             ];
 
@@ -52,7 +51,25 @@ class Functions extends TestCase
 
         // Assert
         $this->assertEquals($expected, $result);
+    }
 
+    public function test_createOptionElement_GivenArrayReturnsString()
+    {
+        //Arrange
+        $mockArray = [];
+    }
+
+    public function test_validateURL_GivenValidURLReturnsTrue()
+    {
+        // Arrange
+        $validURL = 'http://www.google.com';
+        $expected = true;
+
+        // Act
+        $result = validateURL($validURL);
+
+        // Assert
+        $this->assertEquals($expected, $result);
     }
     
     // Failure Tests
@@ -67,7 +84,19 @@ class Functions extends TestCase
 
         // Assert
         $this->assertEquals($expected, $result);
+    }
 
+    public function test_validateURL_GivenInvalidURLReturnsFalse()
+    {
+        // Arrange
+        $invalidURL = '123';
+        $expected = false;
+
+        // Act
+        $result = validateURL($invalidURL);
+
+        // Assert
+        $this->assertEquals($expected, $result);
     }
 
     // Malformed Tests
@@ -79,5 +108,15 @@ class Functions extends TestCase
 
         // Act
         $result = displayCollection($input);
+    }
+
+    public function test_validateURL_GivenArrayThrowError()
+    {
+        // Arrange
+        $input = ['www.google.com'];
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = validateURL($input);
     }
 }

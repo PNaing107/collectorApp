@@ -3,27 +3,6 @@
 require_once 'functions.php';
 $validSubmission = true;
 
-function checkStringInput(array $stringFields): bool
-{
-    foreach ($stringFields as $key => $value) {
-        if (!is_string($_POST[$key]) | strlen($_POST[$key]) == 0 | strlen($_POST[$key]) > 255) {
-            echo '<p>Invalid ' . $value .'. Make sure you provide a ' . $value .' and it is no longer than 255 characters.</p>';
-            return false;
-        }
-    }
-    return true;
-
-}
-
-function validateURL(string $url): bool
-{
-    if (!filter_var($url, FILTER_VALIDATE_URL)) {
-        echo '<p>URL is invalid. Please check and try again</p>';
-        return false;
-    }
-    return true;
-}
-
 // 1. Check Name of Route, URL, Alt Text & Short Description are strings, not empty and not larger than 255 characters
 $string_inputs = [
     'name' => 'route name',
@@ -32,10 +11,18 @@ $string_inputs = [
     'short_description' => 'route description'
     ];
 
-$validSubmission = checkStringInput($string_inputs);
+$result = checkStringInput($string_inputs);
+if(!$result[0]) {
+    echo '<p>Invalid ' . $result[1] .'. Make sure you provide a ' . $result[1] .' and it is no longer than 255 characters.</p>';
+    $validSubmission = false;
+}
 
 // 2. Check if valid url
-$validSubmission = validateURL($_POST['url']);
+$result = validateURL($_POST['url']);
+if(!$result) {
+    echo '<p>URL is invalid. Please check and try again</p>';
+    $validSubmission = false;
+}
 
 // 3. Execute addCollectionItem() if submitted data is valid
 if ($validSubmission) {

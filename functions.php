@@ -198,3 +198,22 @@ function addCollectionItem(PDO $pdo): string
         '<h2>Your Route was Successfully added to the collection!</h2>
         <a href="index.php">Return Back to Collection</a>';
 }
+
+function checkStringInput(array $stringFields): array
+{
+    foreach ($stringFields as $key => $value) {
+        if (!is_string($_POST[$key]) | strlen($_POST[$key]) == 0 | strlen($_POST[$key]) > 255) {
+            return [false, $value];
+        }
+    }
+    return [true];
+
+}
+
+function validateURL(string $url): bool
+{
+    if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        return false;
+    }
+    return true;
+}
