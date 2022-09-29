@@ -16,7 +16,9 @@
 <body>
     <header>
         <h1>Epic Rides Collection</h1>
-        <i class="fa-regular fa-square-plus fa-2xl"></i>
+        <a href="form.php">
+            <i class="fa-regular fa-square-plus fa-2xl"></i>
+        </a>
     </header>
     <main>
         <h2>Welcome to my Collection</h2>
