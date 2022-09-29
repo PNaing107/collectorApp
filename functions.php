@@ -149,14 +149,16 @@ function addCollectionItem(PDO $pdo): string
     $query->execute();
 
     $result = $query->fetchAll();
-    (int) $location_id = $result['location_id'];
+    (int) $location_id = $result[0]['location_id'];
 
     // 3. Insert Statement into `routes`
     $query = $pdo->prepare(
 'INSERT INTO `routes` (`name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)'.
     ' VALUES (:name, :location_id, :distance, :discipline, :effort_level, :adrenaline_rating, :short_description);'
     );
+
     $query->bindParam(':name',$_POST['name']);
+
     $query->bindParam(':location_id',$location_id);
 
     $distance = round($_POST['distance'],1);
@@ -168,17 +170,18 @@ function addCollectionItem(PDO $pdo): string
     $query->bindParam(':effort_level', $effort_level);
 
     (int) $adrenaline_rating = $_POST['adrenaline_rating'];
-    $query->bindParam(':effort_level', $adrenaline_rating);
+    $query->bindParam(':adrenaline_rating', $adrenaline_rating);
 
     $query->bindParam(':short_description', $_POST['short_description']);
+
     $query->execute();
 
     // 4. Get Route ID. Assuming INSERT into `routes` worked the largest `id` will be the `route_id`
     // (this approach seems inefficient)
-    $query = $pdo->prepare('SELECT max(`id`) FROM `routes`;');
+    $query = $pdo->prepare('SELECT max(`id`) AS `id` FROM `routes`;');
     $query->execute();
     $result = $query->fetchAll();
-    (int) $route_id = $query->$result['id'];
+    (int) $route_id = $result[0]['id'];
 
     // 5. Insert Statement into `images`
     $query = $pdo->prepare(
@@ -191,5 +194,7 @@ function addCollectionItem(PDO $pdo): string
     $query->bindParam(':alt_text', $_POST['alt_text']);
     $query->execute();
 
-    return '<h2>Success</h2>';
+    return
+        '<h2>Your Route was Successfully added to the collection!</h2>
+        <a href="index.php"><p>Return Back to Collection</p></a>';
 }
