@@ -283,11 +283,12 @@ CREATE TABLE `routes` (
     `effort_level` int(11) unsigned NOT NULL,
     `adrenaline_rating` int(11) unsigned NOT NULL,
     `short_description` varchar(255) DEFAULT NULL,
+    `external_link` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_routes_locations` FOREIGN KEY (`location_id`) REFERENCES `locations`(`location_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 /*Start autoincrement after initial data insert*/ DEFAULT CHARSET=latin1;
 
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     1,
     'Passo Dello Stelvio',
@@ -296,9 +297,10 @@ VALUES (
     'road',
     4,
     1,
-    'Passo dello Stelvio is "arguably the purest, most exhilarating, most spellbinding mountain playground accessible to cyclists."'
+    'Passo dello Stelvio is "arguably the purest, most exhilarating, most spellbinding mountain playground accessible to cyclists."',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     2,
     "Alpe d'Huez",
@@ -307,9 +309,10 @@ VALUES (
     'road',
     3,
     1,
-    "Alpe d'Huez really is the Mecca of cycling, and the ascent to Alpe d'Huez is truely a once in a lifetime experience!"
+    "Alpe d'Huez really is the Mecca of cycling, and the ascent to Alpe d'Huez is truely a once in a lifetime experience!",
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     3,
     'Cheddar Gorge',
@@ -318,9 +321,10 @@ VALUES (
     'road',
     2,
     1,
-    "Surrounded by druids and guarded by rangers, Somerset's Cheddar Gorge shows it got a lot more to offer than cider and cheese."
+    "Surrounded by druids and guarded by rangers, Somerset's Cheddar Gorge shows it got a lot more to offer than cider and cheese.",
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     4,
     'Strade Bianchi',
@@ -329,9 +333,10 @@ VALUES (
     'gravel',
     3,
     3,
-    '"Strade Bianche" means "white roads" and in Tuscany this expression refers to the network of unpaved back roads that run among the vineyards and olive groves of the Tuscan countryside.'
+    '"Strade Bianche" means "white roads" and in Tuscany this expression refers to the network of unpaved back roads that run among the vineyards and olive groves of the Tuscan countryside.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     5,
     'Trossachs National Park',
@@ -340,9 +345,10 @@ VALUES (
     'gravel',
     3,
     3,
-    'Blessed with endless miles of forest and estate tracks threading their way through hills and glens, the Trossachs are a gravel paradise.'
+    'Blessed with endless miles of forest and estate tracks threading their way through hills and glens, the Trossachs are a gravel paradise.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     6,
     'Belgian Waffle Ride',
@@ -351,9 +357,10 @@ VALUES (
     'gravel',
     5,
     2,
-    'The Belgian Waffle Ride serves up a tough 217Km course with fast pavement, loose gravel, rocky trails, and plenty of waffles.'
+    'The Belgian Waffle Ride serves up a tough 217Km course with fast pavement, loose gravel, rocky trails, and plenty of waffles.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     7,
     'The Old Ghost Road',
@@ -362,9 +369,10 @@ VALUES (
     'mtb-crosscountry',
     2,
     2,
-    'The Old Ghost Road is not just a trail but a journey. This 85km point-to-point will have you climbing for a day through the green of the temperate rainforest before bursting above the tree line with views of rolling hill, after hill, after hill.'
+    'The Old Ghost Road is not just a trail but a journey. This 85km point-to-point will have you climbing for a day through the green of the temperate rainforest before bursting above the tree line with views of rolling hill, after hill, after hill.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     8,
     'Mountain Hero Mine Trail',
@@ -373,9 +381,10 @@ VALUES (
     'mtb-crosscountry',
     3,
     3,
-    'Standing at the top of the Yukon trail and surrounded by vast, empty wilderness, you feel great respect for the power of Mother Nature.'
+    'Standing at the top of the Yukon trail and surrounded by vast, empty wilderness, you feel great respect for the power of Mother Nature.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     9,
     'Tizi Mezzik Pass',
@@ -384,9 +393,10 @@ VALUES (
     'mtb-crosscountry',
     4,
     3,
-    'The breathtaking Tizi Mezzik Pass at 2280m altitude from Imlil to Ouirgane offers immense views offer the High Atlas Mountains.'
+    'The breathtaking Tizi Mezzik Pass at 2280m altitude from Imlil to Ouirgane offers immense views offer the High Atlas Mountains.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     10,
     'Rhyd Ddu',
@@ -395,9 +405,10 @@ VALUES (
     'mtb-downhill',
     1,
     4,
-    "High and hard, with sharp rocks and mountain ridges on Wales's biggest hill."
+    "High and hard, with sharp rocks and mountain ridges on Wales's biggest hill.",
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     11,
     'Mefjellet',
@@ -406,9 +417,10 @@ VALUES (
     'mtb-downhill',
     1,
     4,
-    'Located about 6km from the Valldal valley, the Norwegian mountain Mefjellet makes for an imposing challenge.'
+    'Located about 6km from the Valldal valley, the Norwegian mountain Mefjellet makes for an imposing challenge.',
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
-INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`)
+INSERT INTO `routes` (`id`, `name`, `location_id`, `distance`, `discipline`, `effort_level`, `adrenaline_rating`, `short_description`, `external_link`)
 VALUES (
     12,
     'Galitzenklamm Gorge',
@@ -417,7 +429,8 @@ VALUES (
     'mtb-downhill',
     1,
     5,
-    "Renowned as a climbing and waterspouts destination, Austria's Galitzenklamm Gorge also offers some of the country's most difficult MTB trails. Radwanderung, in particular is the perfect foil for danger-seekers."
+    "Renowned as a climbing and watersports destination, Austria's Galitzenklamm Gorge also offers some of the country's most difficult MTB trails. Radwanderung, in particular is the perfect foil for danger-seekers.",
+    'https://www.roughguides.com/articles/epic-cycle-routes/'
     );
 
 DROP TABLE IF EXISTS `images`;

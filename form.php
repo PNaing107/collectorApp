@@ -25,7 +25,7 @@ require_once 'functions.php';
         Got any got recommendations for some Epic Rides? Feel free to add them to the current collection by completing
         the form below.
     </p>
-    <form action="functions.php" method="post">
+    <form action="formValidation.php" method="post">
         <label for="name">Name of Route</label><br>
         <input type="text" maxlength="255" id="name" name="name" required><br>
         <label for="country">Which Country is it in?</label><br>
@@ -33,23 +33,15 @@ require_once 'functions.php';
         <select name="country" id="country" required>
             <?php
             $db = connectToDB('epic-rides');
-            echo createOptionElement(getListOfCountries($db));
+            echo createOptionElement(getListOfCountries($db),'country_name');
             ?>
         </select><br>
         <label for="region">Which Region of the Country is it in?</label><br>
         <select name="region" id="region" required>
-            <option value="Lombardy">Lombardy</option>
-            <option value="Isere">Isere</option>
-            <option value="Somerset">Somerset</option>
-            <option value="Tuscany">Tuscany</option>
-            <option value="Stirlingshire">Stirlingshire</option>
-            <option value="Michigan">Michigan</option>
-            <option value="Canterbury">Canterbury</option>
-            <option value="Yukon">Yukon</option>
-            <option value="Marrakech-Safi">Marrakech-Safi</option>
-            <option value="Gwynedd">Gwynedd</option>
-            <option value="Sunnmore">Sunnmore</option>
-            <option value="Tyrol">Tyrol</option>
+            <?php
+            $db = connectToDB('epic-rides');
+            echo createOptionElement(getListOfRegions($db),'region');
+            ?>
         </select><br>
         <label for="discipline">Select a Discipline</label><br>
         <select name="discipline" id="discipline" required>
@@ -72,7 +64,7 @@ require_once 'functions.php';
             <option value="4">4</option>
             <option value="5">5</option>
         </select><br>
-        <label for="adrenaline_rating">Adrenaline Score</label><br>
+        <label for="adrenaline_rating">Adrenaline Rating</label><br>
         <select name="adrenaline_rating" id="adrenaline_rating" required>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -80,8 +72,10 @@ require_once 'functions.php';
             <option value="4">4</option>
             <option value="5">5</option>
         </select><br>
-        <label for="short_description">Please provide a short description</label><br>
+        <label for="short_description">Please provide a short description of your route</label><br>
         <input type="text" maxlength="255" id="short_description" name="short_description" required><br>
+        <label for="external_link">Add Link to External Site (optional)</label><br>
+        <input type="text" maxlength="255" id="external_link" name="external_link"><br>
         <input type="submit" value="Submit">
     </form>
 </main>

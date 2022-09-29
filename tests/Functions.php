@@ -21,8 +21,8 @@ class Functions extends TestCase
                     'short_description' => 'testing testing testing',
                     'distance' => 123,
                     'effort_level' => 6,
-                    'adrenaline_rating' =>6
-
+                    'adrenaline_rating' =>6,
+                    'external_link' => 'www.awebsite.com'
                 ]
             ];
 
@@ -30,7 +30,9 @@ class Functions extends TestCase
             '<div class="card">'
             . '<div class="card-header">'
             . '<div class="card-header-icon-holder">'
+            .'<a href="html/explainer.html">'
             . '<i class="fa-solid fa-road fa-2xl"></i>'
+            .'</a>'
             . '</div>'
             . '<h2>' . 'test' . '</h2>'
             . '<p><strong>' . 'test' . '</strong> - ' . 'test' . '</p>'
@@ -41,7 +43,9 @@ class Functions extends TestCase
             . '<p><strong>Distance:</strong><br>' . 123 . ' Km</p>'
             . '<p><strong>Effort Level:</strong><br>' . 6 . '</p>'
             . '<p><strong>Adrenaline Rating:</strong><br>' . 6 . '</p>'
+            .'<a href="www.awebsite.com" target="_blank">'
             . '<span class="material-symbols-outlined md-36">open_in_new</span>'
+            .'</a>'
             . '</div>'
             . '</div>';
 
@@ -50,7 +54,40 @@ class Functions extends TestCase
 
         // Assert
         $this->assertEquals($expected, $result);
+    }
 
+    public function test_createOptionElement_GivenArrayThenStringReturnsString()
+    {
+        // Arrange
+        $mockArray = [
+            ['option'=>'Option 1'],
+            ['option'=>'Option 2'],
+            ['option'=>'Option 3'],
+        ];
+
+        $expected =
+            '<option value="Option 1">Option 1</option>'
+            .'<option value="Option 2">Option 2</option>'
+            .'<option value="Option 3">Option 3</option>';
+
+        // Act
+        $result = createOptionElement($mockArray,'option');
+
+        // Assert
+        $this->assertEquals($expected, $result);
+    }
+
+    public function test_validateURL_GivenValidURLReturnsTrue()
+    {
+        // Arrange
+        $validURL = 'http://www.google.com';
+        $expected = true;
+
+        // Act
+        $result = validateURL($validURL);
+
+        // Assert
+        $this->assertEquals($expected, $result);
     }
     
     // Failure Tests
@@ -65,7 +102,19 @@ class Functions extends TestCase
 
         // Assert
         $this->assertEquals($expected, $result);
+    }
 
+    public function test_validateURL_GivenInvalidURLReturnsFalse()
+    {
+        // Arrange
+        $invalidURL = '123';
+        $expected = false;
+
+        // Act
+        $result = validateURL($invalidURL);
+
+        // Assert
+        $this->assertEquals($expected, $result);
     }
 
     // Malformed Tests
@@ -77,5 +126,29 @@ class Functions extends TestCase
 
         // Act
         $result = displayCollection($input);
+    }
+
+    public function test_validateURL_GivenArrayThrowError()
+    {
+        // Arrange
+        $input = ['www.google.com'];
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = validateURL($input);
+    }
+
+    public function test_createOptionElement_GivenStringThenArrayThrowError()
+    {
+        // Arrange
+        $mockArray = [
+            ['option'=>'Option 1'],
+            ['option'=>'Option 2'],
+            ['option'=>'Option 3'],
+        ];
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = createOptionElement('option', $mockArray);
     }
 }
