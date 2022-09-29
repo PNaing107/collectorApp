@@ -166,7 +166,7 @@ function addCollectionItem(PDO $pdo): string
 {
     // 1. Get location_id
     $query = $pdo->prepare('SELECT `location_id` FROM `locations` WHERE `country_name`= :country_name AND `region`= :region;');
-    $query->bindParam(':country_name',$_POST['country']);
+    $query->bindParam(':country_name', $_POST['country']);
     $query->bindParam(':region',$_POST['region']);
 
     // 2. Execute query
@@ -211,7 +211,7 @@ function addCollectionItem(PDO $pdo): string
 
     // 5. Insert Statement into `images`
     $query = $pdo->prepare(
-        'INSERT INTO `images` (`route_id`,`url`, `alt_text`)'.
+        'INSERT INTO `images` (`route_id`, `url`, `alt_text`)'.
         ' VALUES (:route_id, :url, :alt_text);'
     );
 

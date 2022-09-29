@@ -12,14 +12,14 @@ $string_inputs = [
     ];
 
 $result = checkStringInput($string_inputs);
-if(!$result[0]) {
+if (!$result[0]) {
     echo '<p>Invalid ' . $result[1] .'. Make sure you provide a ' . $result[1] .' and it is no longer than 255 characters.</p>';
     $validSubmission = false;
 }
 
 // 2. Check if valid url
 $result = validateURL($_POST['url']);
-if(!$result) {
+if (!$result) {
     echo '<p>URL is invalid. Please check and try again</p>';
     $validSubmission = false;
 }
@@ -31,5 +31,4 @@ if ($validSubmission) {
 } else {
     echo '<p>Please go back to the <a href="form.php">form</a> and try again.</p>';
 }
-
 
