@@ -35,7 +35,8 @@ function getCollection(PDO $pdo): array
 {
     //1. Prepare statement
     $query = $pdo->prepare(
-        'SELECT 
+        'SELECT
+        `routes`.`id`,
         `routes`.`name`,
         `routes`.`distance`,
         `routes`.`discipline`,
@@ -48,7 +49,8 @@ function getCollection(PDO $pdo): array
         `images`.`alt_text`
         FROM `routes`
         LEFT JOIN `locations` on `locations`.`location_id`=`routes`.`location_id`
-        RIGHT JOIN `images` on `images`.`route_id`=`routes`.`id`;'
+        RIGHT JOIN `images` on `images`.`route_id`=`routes`.`id`
+        ORDER BY `routes`.`id` DESC;'
     );
 
     //2. Execute query
