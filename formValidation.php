@@ -3,6 +3,24 @@
 require_once 'functions.php';
 $validSubmission = true;
 
+function checkStringInput(array $stringFields): bool
+{
+    foreach ($stringFields as $key => $value) {
+        if (!is_string($_POST[$key]) | strlen($_POST[$key]) == 0 | strlen($_POST[$key]) > 255) {
+            echo '<p>Invalid ' . $value .'. Make sure you provide a ' . $value .' and it is no longer than 255 characters.</p>';
+        }
+    }
+    return false;
+}
+
+function validateURL(string $url): bool
+{
+    if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        echo '<p>URL is invalid. Please check and try again</p>';
+    }
+    return false;
+}
+
 // 1. Check Name of Route, URL, Alt Text & Short Description are strings, not empty and not larger than 255 characters
 $string_inputs = [
     'name' => 'route name',
@@ -10,18 +28,13 @@ $string_inputs = [
     'alt_text' => 'image description',
     'short_description' => 'route description'
     ];
-foreach ($string_inputs as $key => $value) {
-    if (!is_string($_POST[$key]) | strlen($_POST[$key]) == 0 | strlen($_POST[$key]) > 255) {
-        echo '<p>Invalid ' . $value .'. Make sure you provide a ' . $value .' and it is no longer than 255 characters.</p>';
-        $validSubmission = false;
-    }
-}
+
+$validSubmission = checkStringInput($string_inputs);
 
 // 2. Check if valid url
-if (!filter_var($_POST['url'], FILTER_VALIDATE_URL)) {
-    echo '<p>URL is invalid. Please check and try again</p>';
-}
+$validSubmission = validateURL($_POST['url']);
 
+// 3. Execute addCollectionItem() if submitted data is valid
 if ($validSubmission) {
     $db = connectToDB('epic-rides');
     echo addCollectionItem($db);
