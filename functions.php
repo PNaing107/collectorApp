@@ -127,12 +127,12 @@ function getListOfRegions(PDO $pdo): array
     return $query->fetchAll();
 }
 
-function createOptionElement(array $array): string
+function createOptionElement(array $array, string $key): string
 {
     $optionHTML = '';
 
     foreach ($array as $option) {
-        $optionHTML .= '<option value="' . $option['country_name'] . '">' . $option['country_name'] . '</option>';
+        $optionHTML .= '<option value="' . $option[$key] . '">' . $option[$key] . '</option>';
     }
 
     return $optionHTML;

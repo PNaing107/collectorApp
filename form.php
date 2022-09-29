@@ -33,14 +33,14 @@ require_once 'functions.php';
         <select name="country" id="country" required>
             <?php
             $db = connectToDB('epic-rides');
-            echo createOptionElement(getListOfCountries($db));
+            echo createOptionElement(getListOfCountries($db),'country_name');
             ?>
         </select><br>
         <label for="region">Which Region of the Country is it in?</label><br>
         <select name="region" id="region" required>
             <?php
             $db = connectToDB('epic-rides');
-            echo createOptionElement(getListOfRegions($db));
+            echo createOptionElement(getListOfRegions($db),'region');
             ?>
         </select><br>
         <label for="discipline">Select a Discipline</label><br>
