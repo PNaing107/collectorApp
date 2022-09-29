@@ -74,6 +74,8 @@ require_once 'functions.php';
         </select><br>
         <label for="short_description">Please provide a short description of your route</label><br>
         <input type="text" maxlength="255" id="short_description" name="short_description" required><br>
+        <label for="external_link">Add Link to External Site (optional)</label><br>
+        <input type="text" maxlength="255" id="external_link" name="external_link"><br>
         <input type="submit" value="Submit">
     </form>
 </main>
