@@ -135,7 +135,9 @@ function addCollectionItem(PDO $pdo): string
 
     // 2. Execute query
     $query->execute();
-    (int) $location_id = $query->fetchAll();
+
+    $result = $query->fetchAll();
+    (int) $location_id = $result['location_id'];
 
     // 3. Insert Statement into `routes`
     $query = $pdo->prepare(
@@ -157,29 +159,25 @@ function addCollectionItem(PDO $pdo): string
     $query->bindParam(':effort_level', $adrenaline_rating);
 
     $query->bindParam(':short_description', $_POST['short_description']);
+    $query->execute();
 
-    try {
-        $query->execute();
-    } catch (\PDOException $exception) {
-        throw new \PDOException($exception->getMessage(), (int)$exception->getCode());
-    }
+    // 4. Get Route ID. Assuming INSERT into `routes` worked the largest `id` will be the `route_id`
+    // (this approach seems inefficient)
+    $query = $pdo->prepare('SELECT max(`id`) FROM `routes`;');
+    $query->execute();
+    $result = $query->fetchAll();
+    (int) $route_id = $query->$result['id'];
 
-    // 4. Insert Statement into `images`
+    // 5. Insert Statement into `images`
     $query = $pdo->prepare(
         'INSERT INTO `images` (`route_id`,`url`, `alt_text`)'.
         ' VALUES (:route_id, :url, :alt_text);'
     );
 
-    // How to get Route ID???????
-
+    $query->bindParam(':route_id', $route_id);
     $query->bindParam(':url', $_POST['url']);
     $query->bindParam(':alt_text', $_POST['alt_text']);
+    $query->execute();
 
-    try {
-        $query->execute();
-    } catch (\PDOException $exception) {
-        throw new \PDOException($exception->getMessage(), (int)$exception->getCode());
-    }
-
-    return 'Success';
+    return '<h2>Success</h2>';
 }
